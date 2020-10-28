@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './Login';
 import Cursos from './Cursos';
 import NewCurso from './NewCurso';
-import EditCurso from './EditCurso';
+import NewAndEditCurso from './EditCurso';
 
 export default function Routes() {
   return (
@@ -13,7 +13,7 @@ export default function Routes() {
         <Route path="/" exact component={ Login } />
         <Route path="/cursos" component={ Cursos } />
         <Route path="/curso/new" component={ NewCurso } />
-        <Route path="/curso/edit" component={ EditCurso } />
+        <Route path='/curs/:id' component={NewAndEditCurso} />
       </Switch>
     </BrowserRouter>
   )

@@ -33,7 +33,7 @@ function Cursos() {
       <header>
         <Link id="getBackLink" className="back-link" to="/">
           <FiArrowLeft size={ 20 } color="#407BFF" />
-            Voltar para cursos
+            Voltar para Login
         </Link>
         <Link className="button" to="/curso/new">Cadastrar curso</Link>
       </header>
@@ -51,7 +51,7 @@ function Cursos() {
                     <p>{ course.tiutle }</p>
 
                     <div className='divIcons'>
-                      <Link type="button" to="/curso/edit" title="Editar curso">
+                      <Link type="button" to={`/curs/${ course.id }`} title="Editar curso">
                         <FiEdit3 size={ 20 } color="#2165ff" />
                       </Link>
                       <button onClick={ () => handleDeleteCourse(course.id) } type="button" title="Deletar curso">
