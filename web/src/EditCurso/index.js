@@ -72,7 +72,6 @@ export default class NewAndEditCurso extends Component {
   }
 
   render() {
-
     return (
       <div className="new-incident-container">
         <div className="content">

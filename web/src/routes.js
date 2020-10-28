@@ -5,6 +5,7 @@ import Login from './Login';
 import Cursos from './Cursos';
 import NewCurso from './NewCurso';
 import NewAndEditCurso from './EditCurso';
+import Users from './Users';
 
 export default function Routes() {
   return (
@@ -14,6 +15,7 @@ export default function Routes() {
         <Route path="/cursos" component={ Cursos } />
         <Route path="/curso/new" component={ NewCurso } />
         <Route path='/curs/:id' component={NewAndEditCurso} />
+        <Route path='/users' component={Users} />
       </Switch>
     </BrowserRouter>
   )

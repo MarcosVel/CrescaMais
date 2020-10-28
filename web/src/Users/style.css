@@ -1,5 +1,6 @@
 header {
   display: flex;
+  height: 60px;
   justify-content: space-between;
 }
 
@@ -70,12 +71,12 @@ header {
   margin-top: 22px;
 }
 
-.divIcons {
+#divIcons {
   display: flex;
   position: absolute;
   align-items: baseline;
   right: 24px;
-  top: 27px;
+  top: 33px;
 }
 
 .profile-container ul li button {
@@ -90,8 +91,4 @@ header {
 .profile-container ul li button:hover,
 .profile-container ul li a:hover {
   opacity: 0.5;
-}
-
-#iconUsers {
-  margin-right: 10px;
 }

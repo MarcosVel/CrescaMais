@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiArrowLeft, FiTrash2, FiEdit3 } from 'react-icons/fi';
 import { Card, Accordion } from 'react-bootstrap';
-
-import api from '../services/api';
+import { FiArrowLeft, FiTrash2, FiEdit3, FiUsers } from 'react-icons/fi';
 
 import './style.css';
+
+import api from '../services/api';
 
 function Cursos() {
   const [ courses, setCourses ] = useState([]);
 
+  // Get da api para buscar os cursos e seus dados
   useEffect(() => {
     api.get('courses')
       .then(response => {
@@ -18,6 +19,7 @@ function Cursos() {
       })
   }, []);
 
+  // Função para deletar o curso selecionado
   async function handleDeleteCourse(id) {
     try {
       await api.delete(`courses/${ id }`)
@@ -35,6 +37,11 @@ function Cursos() {
           <FiArrowLeft size={ 20 } color="#407BFF" />
             Voltar para Login
         </Link>
+
+        <Link className="button" to="/users">
+          <FiUsers id='iconUsers' size={ 20 } color="white" />
+          Usuários
+        </Link>
         <Link className="button" to="/curso/new">Cadastrar curso</Link>
       </header>
 
@@ -51,7 +58,7 @@ function Cursos() {
                     <p>{ course.tiutle }</p>
 
                     <div className='divIcons'>
-                      <Link type="button" to={`/curs/${ course.id }`} title="Editar curso">
+                      <Link type="button" to={ `/curs/${ course.id }` } title="Editar curso">
                         <FiEdit3 size={ 20 } color="#2165ff" />
                       </Link>
                       <button onClick={ () => handleDeleteCourse(course.id) } type="button" title="Deletar curso">
