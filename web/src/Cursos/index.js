@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft, FiTrash2, FiEdit3 } from 'react-icons/fi';
+import { Card, Accordion } from 'react-bootstrap';
 
 import api from '../services/api';
 
@@ -34,7 +35,7 @@ function Cursos() {
           <FiArrowLeft size={ 20 } color="#407BFF" />
             Voltar para cursos
         </Link>
-        <Link className="button" to="/curso/new">Cadastrar novo curso</Link>
+        <Link className="button" to="/curso/new">Cadastrar curso</Link>
       </header>
 
       <h1>Cursos:</h1>
@@ -42,36 +43,49 @@ function Cursos() {
       <ul>
         { courses.map(course => (
           <li key={ course.id }>
-            <strong>Título:</strong>
-            <p>{ course.tiutle }</p>
+            <Accordion>
+              <Card>
+                <Accordion.Toggle as={ Card.Header } eventKey='0'>
+                  <>
+                    <strong>Título:</strong>
+                    <p>{ course.tiutle }</p>
 
-            <strong>Preço:</strong>
-            <p>{ Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(course.price) }</p>
+                    <div className='divIcons'>
+                      <Link type="button" to="/curso/edit" title="Editar curso">
+                        <FiEdit3 size={ 20 } color="#2165ff" />
+                      </Link>
+                      <button onClick={ () => handleDeleteCourse(course.id) } type="button" title="Deletar curso">
+                        <FiTrash2 size={ 20 } color="red" />
+                      </button>
+                    </div>
+                  </>
+                </Accordion.Toggle>
 
-            <strong>Workland:</strong>
-            <p>{ course.workland }</p>
+                <Accordion.Collapse id='accordionCollapse' eventKey='0'>
+                  <>
+                    <strong>Preço:</strong>
+                    <p>{ Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(course.price) }</p>
 
-            <strong>Aulas:</strong>
-            <p>{ course.lesson }</p>
+                    <strong>Workland:</strong>
+                    <p>{ course.workland }</p>
 
-            <strong>Autor:</strong>
-            <p>{ course.author }</p>
+                    <strong>Aulas:</strong>
+                    <p>{ course.lesson }</p>
 
-            <strong>Ano:</strong>
-            <p>{ course.year }</p>
+                    <strong>Autor:</strong>
+                    <p>{ course.author }</p>
 
-            <div className='divIcons'>
-              <Link type="button" to="/curso/edit" title="Editar curso">
-                <FiEdit3 size={ 20 } color="#2165ff" />
-              </Link>
-              <button onClick={ () => handleDeleteCourse(course.id) } type="button" title="Deletar curso">
-                <FiTrash2 size={ 20 } color="red" />
-              </button>
-            </div>
+                    <strong>Ano:</strong>
+                    <p>{ course.year }</p>
+                  </>
+                </Accordion.Collapse>
 
+              </Card>
+            </Accordion>
           </li>
         )) }
       </ul>
+
     </div>
   );
 }

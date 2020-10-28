@@ -31,18 +31,28 @@
   list-style: none;  
 }
 
-.profile-container ul li {
+.card:hover,
+.card-header:hover {
+  cursor: pointer;
+  background-color: #fcfcfc;
+}
+
+.card-header,
+#accordionCollapse {
   background: #FFF;
-  margin: 10px 0;
-  padding: 24px;
+  margin: 1px 0;
+  
   border-radius: 8px;
   position: relative;
 }
 
+#accordionCollapse {
+  padding: 10px 24px 0px;
+}
 
 .profile-container ul li strong {
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
   color: #41414d;
 }
 
@@ -53,12 +63,13 @@
 }
 
 .profile-container ul li p + strong {
-  margin-top: 32px;
+  margin-top: 22px;
 }
 
 .divIcons {
   display: flex;
   position: absolute;
+  align-items: baseline;
   right: 24px;
   top: 24px;
 }
@@ -69,9 +80,10 @@
   top: 24px; */
   margin-left: 10px;
   border: 0;
-  background-color: #fff;
+  background-color: transparent;
 }
 
-.profile-container ul li button:hover {
+.profile-container ul li button:hover,
+.profile-container ul li a:hover {
   opacity: 0.5;
 }
