@@ -1,12 +1,15 @@
 # Como rodar o projeto:
 
 - Faça o download da pasta, abra a pasta 'CrescaMais' e digite "cmd" no caminho da pasta;
-- Digite "json-server --watch db.json" e deixe esse cmd aberto;
-
+- Digite no cmd aberto e deixe o rodando:
+### json-server --watch db.json
 <br />
 
 - Abra a pasta 'web' e digite "cmd" no caminho da pasta;
-- Digite "npm start" e deixe esse cmd aberto;
+- Digite no cmd aberto:
+### npm start
+- Irá aparecer uma mensagem dizendo que já tem um programa (o json-server no caso) rodando na porta :3000, e se você gostaria de rodar o programa (Projeto React) em outra porta. Digite:
+### Y
 
 <br />
 
