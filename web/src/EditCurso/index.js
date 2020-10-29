@@ -29,7 +29,7 @@ export default class NewAndEditCurso extends Component {
 
   componentDidMount() {
     const { match: { params } } = this.props;
-    let _isCreate = (params.id) == undefined;
+    let _isCreate = (params.id) === undefined;
 
     this.setState({
       id: params.id,

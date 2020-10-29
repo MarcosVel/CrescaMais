@@ -51,7 +51,7 @@ function Cursos() {
   // Função para pesquisa de cursos
   async function handleSearch() {
     // Não mandar requisição de busca caso não tenha nada no input
-    if (termo.length == 0) {
+    if (termo.length === 0) {
       return;
     }
 
@@ -101,7 +101,7 @@ function Cursos() {
       <div className='divForm mb-4'>
         <InputGroup>
           <Form.Control as="select" onChange={ handleFiltroChange } style={ { flex: 0.2 } } >
-            <option selected value="tiutle">Título</option>
+            <option value="tiutle">Título</option>
             <option value="price">Preço</option>
             <option value="lesson">Aulas</option>
             <option value="author">Autor</option>
@@ -109,8 +109,8 @@ function Cursos() {
           </Form.Control>
           <FormControl value={ termo } onChange={ handleChange } style={ { flex: 1 } } />
         </InputGroup>
-        <button class="button" onClick={ handleSearch }>Buscar</button>
-        <button class="button" onClick={ handleResetSearch }>Limpar</button>
+        <button className="button" onClick={ handleSearch }>Buscar</button>
+        <button className="button" onClick={ handleResetSearch }>Limpar</button>
       </div>
 
       <ul>
@@ -122,7 +122,7 @@ function Cursos() {
                 <Accordion.Toggle as={ Card.Header } eventKey='0'>
                   <>
                     <div className='divCourse'>
-                      <img src={ elearning } width={ 59 }></img>
+                      <img src={ elearning } alt='thumbnail do curso' width={ 59 }></img>
                       <div className='divCourseText'>
                         <strong>Título:</strong>
                         <p>{ course.tiutle }</p>
