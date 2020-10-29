@@ -47,7 +47,7 @@ function Cursos() {
           <FiUsers id='iconUsers' size={ 20 } color="white" />
           Usuários
         </Link>
-        <Link className="button" to="/curso/new">Cadastrar curso</Link>
+        <Link className="button" to="/curs">Cadastrar curso</Link>
       </header>
 
       <h1>Cursos:</h1>
