@@ -45,6 +45,7 @@ export default class NewAndEditCurso extends Component {
 
   // const history = useHistory();
 
+  // Função para lidar com criação ou edição de curso 
   handleCourse(e) {
     e.preventDefault();
     const isCreate = this.state.id == '';

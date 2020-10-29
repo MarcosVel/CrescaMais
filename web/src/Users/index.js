@@ -35,6 +35,7 @@ function Users() {
           <li key={ user.id }>
             <Accordion>
               <Card>
+                {/* Parte da lista amostra */ }
                 <Accordion.Toggle as={ Card.Header } eventKey='0'>
                   <>
                     <strong>Nome:</strong>
@@ -46,12 +47,13 @@ function Users() {
                   </>
                 </Accordion.Toggle>
 
+                {/* Parte da lista oculta */ }
                 <Accordion.Collapse id='accordionCollapse' eventKey='0'>
                   <>
                     <strong>E-mail:</strong>
                     <p>{ user.email }</p>
 
-                    <h6>Favoritos:</h6>
+                    <h6>Cursos favoritados:</h6>
                     <hr></hr>
 
                     { user.favorites.map(favorite => (
