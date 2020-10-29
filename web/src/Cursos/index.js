@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Accordion } from 'react-bootstrap';
+import { Card, Accordion, Form, InputGroup, FormControl } from 'react-bootstrap';
 import { FiArrowLeft, FiTrash2, FiEdit3, FiHeart, FiUsers } from 'react-icons/fi';
+
+import elearning from '../assets/elearning.png';
 
 import './style.css';
 
@@ -9,15 +11,59 @@ import api from '../services/api';
 
 function Cursos() {
   const [ courses, setCourses ] = useState([]);
+  const [ termo, setTermo ] = useState('');
+  const [ filtro, setFiltro ] = useState('tiutle');
 
   // Get da api para buscar os cursos e seus dados
   useEffect(() => {
     api.get('courses')
       .then(response => {
         setCourses(response.data);
-        console.log(response.data);
       })
   }, []);
+
+  // Função de setar valor do input de busca
+  async function handleChange(e) {
+    e.preventDefault();
+
+    setTermo(e.target.value);
+  }
+
+  // Função de limpar valor do input de busca e retornar todos os cursos
+  async function handleResetSearch(e) {
+    e.preventDefault();
+
+    setTermo('');
+
+    api.get('courses')
+      .then(response => {
+        setCourses(response.data);
+      });
+  }
+
+  // Função de filtro de cursos
+  async function handleFiltroChange(e) {
+    e.preventDefault();
+
+    setFiltro(e.target[ e.target.selectedIndex ].value);
+  }
+
+  // Função para pesquisa de cursos
+  async function handleSearch() {
+    // Não mandar requisição de busca caso não tenha nada no input
+    if (termo.length == 0) {
+      return;
+    }
+
+    try {
+      api.get(`courses?${ filtro }_like=${ termo }`)
+        .then(response => {
+          setCourses(response.data);
+        })
+    } catch (err) {
+      alert('Erro ao buscar curso, tente novamente.')
+    }
+  }
 
   // Função para deletar o curso selecionado
   async function handleDeleteCourse(id) {
@@ -31,8 +77,8 @@ function Cursos() {
   }
 
   // Função de alerta quando favorita o curso
-  async function handleFavorite() {
-    alert(`Você favoritou o curso`);
+  async function handleFavorite(tiutle) {
+    alert(`Você favoritou o curso ${ tiutle }`);
   }
 
   return (
@@ -52,19 +98,39 @@ function Cursos() {
 
       <h1>Cursos:</h1>
 
+      <div className='divForm mb-4'>
+        <InputGroup>
+          <Form.Control as="select" onChange={ handleFiltroChange } style={ { flex: 0.2 } } >
+            <option selected value="tiutle">Título</option>
+            <option value="price">Preço</option>
+            <option value="lesson">Aulas</option>
+            <option value="author">Autor</option>
+            <option value="year">Ano</option>
+          </Form.Control>
+          <FormControl value={ termo } onChange={ handleChange } style={ { flex: 1 } } />
+        </InputGroup>
+        <button class="button" onClick={ handleSearch }>Buscar</button>
+        <button class="button" onClick={ handleResetSearch }>Limpar</button>
+      </div>
+
       <ul>
         { courses.map(course => (
           <li key={ course.id }>
             <Accordion>
               <Card>
-                {/* Parte da lista amostra */}
+                {/* Parte da lista amostra */ }
                 <Accordion.Toggle as={ Card.Header } eventKey='0'>
                   <>
-                    <strong>Título:</strong>
-                    <p>{ course.tiutle }</p>
+                    <div className='divCourse'>
+                      <img src={ elearning } width={ 59 }></img>
+                      <div className='divCourseText'>
+                        <strong>Título:</strong>
+                        <p>{ course.tiutle }</p>
+                      </div>
+                    </div>
 
                     <div className='divIcons'>
-                      <button onClick={ () => handleFavorite() } type="button" title="Favoritar curso">
+                      <button onClick={ () => handleFavorite(course.tiutle) } type="button" title="Favoritar curso">
                         <FiHeart size={ 20 } color="red" />
                       </button>
                       <Link type="button" to={ `/curs/${ course.id }` } title="Editar curso">
@@ -77,7 +143,7 @@ function Cursos() {
                   </>
                 </Accordion.Toggle>
 
-                {/* Parte da lista oculta */}
+                {/* Parte da lista oculta */ }
                 <Accordion.Collapse id='accordionCollapse' eventKey='0'>
                   <>
                     <strong>Preço:</strong>

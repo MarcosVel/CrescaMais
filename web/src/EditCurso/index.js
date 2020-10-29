@@ -8,7 +8,6 @@ import './style.css';
 import api from '../services/api';
 
 // Valida se estou criando curso (SE é criação de curso) ==true => criação
-// const isCreate = this.state.id == '';
 
 export default class NewAndEditCurso extends Component {
   constructor(props) {
@@ -42,13 +41,10 @@ export default class NewAndEditCurso extends Component {
     if (!this.state.isCreate) {
       api.get(`courses/${ params.id }`)
         .then(response => {
-          console.log(response.data);
           this.setState({ ...this.state, curso: response.data })
-          console.log(this.state)
         })
     }
   }
-
 
   // Função para lidar com criação ou edição de curso 
   handleCourse(e) {
@@ -77,7 +73,6 @@ export default class NewAndEditCurso extends Component {
 
   // Função para setar mudanças dos inputs
   handleInputChange(event) {
-    console.log(event.target)
     const target = event.target;
     const value = target.value;
     const name = target.name;
@@ -88,7 +83,6 @@ export default class NewAndEditCurso extends Component {
       curso: cursoCopia
     });
   }
-
 
   render() {
     return (
@@ -106,9 +100,7 @@ export default class NewAndEditCurso extends Component {
             </Link>
           </section>
 
-          <form
-            onSubmit={ this.handleCourse.bind(this) }
-          >
+          <form onSubmit={ this.handleCourse.bind(this) }>
             <input
               placeholder="Título do curso"
               value={ this.state.curso.tiutle }

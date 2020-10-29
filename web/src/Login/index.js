@@ -1,62 +1,38 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom'
 import { FiLogIn } from 'react-icons/fi'
-
-import api from '../services/api';
 
 import './style.css';
 
 import imgUser from '../assets/imgUser.svg';
 
 export default function Login() {
-    const [id, setId] = useState('');
-    const history = useHistory();
 
-    // async function handleLogin(e) {
-    //     e.preventDefault();
+  return (
+    <div className="login-container">
+      <img src={ imgUser } id='imgUser' width='700' alt="User Background" />
 
-    //     try {
-    //         const response = await api.post('sessions', { id })
+      <section className="form">
+        <form>
+          <h1>Faça seu login</h1>
 
-    //         localStorage.setItem('ongId', id);
-    //         localStorage.setItem('ongName', response.data.name);
+          <input
+            id='firstChildInput'
+            placeholder="E-mail"
+          />
+          <input
+            placeholder="Senha"
+          />
 
-    //         history.push('/profile');
-    //     } catch (err) {
-    //         alert('Falha no login, tente novamente.');
-    //     }
-    // }
+          <Link className="button" to="/cursos">Entrar</Link>
 
-    return ( 
-        <div className= "login-container">
-          <img src = { imgUser } id='imgUser' width='700' alt= "User Background"/>
-            <section className = "form">
-                <form >
-
-                    <h1>Faça seu login</h1>
-
-                    <input 
-                    id='firstChildInput'
-                    placeholder= "E-mail"
-                    value={id}
-                    onChange={e => setId(e.target.value)}
-                    />
-                    <input 
-                    placeholder= "Senha"
-                    value={id}
-                    onChange={e => setId(e.target.value)}
-                    />
-                    
-                    <Link className= "button" to="/cursos">Entrar</Link>
-
-                    <Link className="back-link" to= "/">
-                        <FiLogIn size = { 16 } color= "#407BFF"/>
-                        Não tenho cadastro 
-                    </Link> 
-                </form>
-
-            </section> 
-            
-        </div>
-    );
+          <Link className="back-link" to="/">
+            <FiLogIn size={ 16 } color="#407BFF" />
+              Não tenho cadastro
+          </Link>
+        </form>
+      </section>
+      
+    </div>
+  );
 }

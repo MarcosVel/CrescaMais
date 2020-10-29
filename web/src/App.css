@@ -17,6 +17,10 @@ button {
     font: 400 18px Roboto, sans-serif;
 }
 
+p {
+  margin-bottom: 0 !important;
+}
+
 button {
   cursor: pointer;
 }

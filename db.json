@@ -35,15 +35,6 @@
       "author": "Marcos",
       "year": "2015",
       "id": 4
-    },
-    {
-      "tiutle": "Teste do Dan",
-      "price": "150",
-      "workland": "44",
-      "lesson": "30",
-      "author": "Daniel",
-      "year": "2020",
-      "id": 5
     }
   ],
   "users": [

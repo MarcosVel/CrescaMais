@@ -21,6 +21,29 @@ header {
   margin-top: 0;
 }
 
+.divForm,
+.divCourse {
+  display: flex;
+}
+
+.divForm select,
+.divForm input {
+  height: 60px;
+  font-size: 20px;
+}
+
+.divForm button {
+  width: 150px;
+  margin-top: 0;
+  border-radius: .25rem;
+  border: 1px solid lightgray;
+}
+
+.divCourseText {
+  margin-left: 10px;
+  padding-top: 8px;
+}
+
 #getBackLink {
   margin-left: 0;
 }
@@ -29,8 +52,9 @@ header {
   margin-top: 65px;
   margin-bottom: 24px;
 }
+
 .profile-container ul {
-  list-style: none;  
+  list-style: none;
 }
 
 .card-header:hover {
@@ -42,13 +66,12 @@ header {
 #accordionCollapse {
   background: #FFF;
   margin: 1px 0;
-  
   border-radius: 8px;
   position: relative;
 }
 
 #accordionCollapse {
-  padding: 10px 24px 0px;
+  padding: 10px 24px;
 }
 
 .profile-container ul li strong {
@@ -63,7 +86,7 @@ header {
   font-size: 16px;
 }
 
-.profile-container ul li p + strong {
+.profile-container ul li p+strong {
   margin-top: 22px;
 }
 
@@ -72,7 +95,7 @@ header {
   position: absolute;
   align-items: baseline;
   right: 24px;
-  top: 27px;
+  top: 28px;
 }
 
 .profile-container ul li a,
@@ -89,4 +112,18 @@ header {
 
 #iconUsers {
   margin-right: 10px;
+}
+
+@media(max-width: 767px) {
+  .divForm {
+    display: block;
+  }
+
+  .divForm select {
+    flex: .5 !important;
+  }
+
+  .divForm button {
+    width: 100%;
+  }
 }

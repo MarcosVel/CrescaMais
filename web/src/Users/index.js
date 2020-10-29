@@ -15,7 +15,6 @@ function Users() {
     api.get('users')
       .then(response => {
         setUsers(response.data);
-        console.log(response.data);
       })
   }, []);
 
@@ -56,6 +55,7 @@ function Users() {
                     <h6>Cursos favoritados:</h6>
                     <hr></hr>
 
+                    {/* Mapeamento dos cursos favoritados por usuários */}
                     { user.favorites.map(favorite => (
                       <li key={ favorite.id }>
                         <strong>Título:</strong>
@@ -79,10 +79,6 @@ function Users() {
                         <hr></hr>
                       </li>
                     )) }
-
-                    {/* <strong>Aulas:</strong>
-                    <p>{ user.lesson }</p> */}
-
                   </>
                 </Accordion.Collapse>
 
