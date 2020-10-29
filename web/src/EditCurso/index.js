@@ -84,8 +84,8 @@ export default class NewAndEditCurso extends Component {
 
             <Link className="back-link" to="/cursos">
               <FiArrowLeft size={ 20 } color="#407BFF" />
-                          Voltar para cursos
-                      </Link>
+                Voltar para cursos
+            </Link>
           </section>
 
           <form

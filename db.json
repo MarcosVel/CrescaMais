@@ -1,9 +1,9 @@
 {
-  "courses" : [
+  "courses": [
     {
       "id": 1,
       "tiutle": "Title Course 1",
-      "price" : 10.40,
+      "price": 10.4,
       "workland": 44,
       "lesson": 10,
       "author": "Name author 1",
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "tiutle": "Title Course 2",
-      "price" : 1.50,
+      "price": 1.5,
       "workland": 44,
       "lesson": 20,
       "author": "Name author 2",
@@ -21,24 +21,32 @@
     {
       "id": 3,
       "tiutle": "Title Course 3",
-      "price" : 1.50,
+      "price": 1.5,
       "workland": 44,
       "lesson": 20,
       "author": "Name author 3",
       "year": 2020
+    },
+    {
+      "tiutle": "Teste do marquin",
+      "price": 10.5,
+      "workland": 44,
+      "lesson": 5,
+      "author": "Marcos",
+      "year": 2010,
+      "id": 4
     }
   ],
-
   "users": [
     {
       "id": 1,
       "name": "Name User",
       "email": "teste[a]teste.com.br",
-      "favorites" : [
+      "favorites": [
         {
           "id": 1,
           "tiutle": "Title Course 1",
-          "price" : 10.40,
+          "price": 10.4,
           "workland": 44,
           "lesson": 10,
           "author": "Name author 1",
@@ -47,7 +55,7 @@
         {
           "id": 3,
           "tiutle": "Title Course 3",
-          "price" : 1.50,
+          "price": 1.5,
           "workland": 44,
           "lesson": 20,
           "author": "Name author 3",
